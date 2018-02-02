@@ -44,6 +44,10 @@
 			font-size: 3.875vh;
 			font-family: 'Encode Sans', Arial, Helvetica, sans-serif;
 		}
+		span {
+			font-size: 3.875vh;
+			font-family: 'Encode Sans', Arial, Helvetica, sans-serif;
+		}
 
 		.botonColor {
 			display: inline-block;
@@ -136,7 +140,14 @@
 			</div>
 		</div>
 	</div>
+	<div id="final" style="display:none">
+		<span>Hola, </span>
+		<span id="nombreRecomendador"></span>
+		<span>te invita a que ganas un premio a elección.</span>
+		<img src="img/premios.png" style="position:absolute; bottom:0; right:0;max-height:35vh; z-index:1" />
+	</div>
 	<img src="img/footer.svg" style="position:fixed; bottom:0;z-index:0" />
+
 
 	<script>
 		var recomendador = obtenerValor("pers", 0);
@@ -144,7 +155,9 @@
 		function init(){
 			if(recomendador){
 				ocultar(landing);
+				nombreRecomendador.innerHTML = recomendador;
 				mostrar(final);
+
 			}
 		}
 		function obtenerValor(variable, esNum) {

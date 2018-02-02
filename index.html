@@ -193,7 +193,7 @@
 			x.style.display = 'none';
 		}
 		function crearURL(x) {
-			return x + window.location.href.split('?')[0] + '%3F' + codificar("pers=" + recomendador.toString() + "prod=" + recomendacion.toString());
+			return x + window.location.href.split('?')[0] + '?' + codificar("pers=" + recomendador.toString() + "prod=" + recomendacion.toString());
 		}
 
 		//ofuscacion

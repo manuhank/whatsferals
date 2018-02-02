@@ -101,7 +101,7 @@
 
 <body>
 	<div id="landing">
-		<img src="img/titulo.svg" style="position:relative; top:10vh; margin:0 5vh 0 5vh;max-height:35vh;z-index:0" />
+		<img src="img/titulo.svg" style="position:relative; top:8vh; margin:0 8vh 0 8vh;max-height:35vh;z-index:0" />
 		<div style="position:relative; margin:13vh 5vh 0 5vh;">
 			<p>Ganá recomendanos a un amigo o colega ¡son solo dos clicks y el premio lo eligen ustedes!</p>
 		</div>
@@ -143,7 +143,7 @@
 	<div id="final" style="display:none">
 		<span>Hola, </span>
 		<span id="nombreRecomendador"></span>
-		<span>te invita a que ganas un premio a elección.</span>
+		<span> te invitó a nuestra promo. Con tu primera compra, ambos ganan un premio a elección.</span>
 		<img src="img/premios.png" style="position:absolute; bottom:0; right:0;max-height:35vh; z-index:1" />
 	</div>
 	<img src="img/footer.svg" style="position:fixed; bottom:0;z-index:0" />
@@ -193,7 +193,7 @@
 			x.style.display = 'none';
 		}
 		function crearURL(x) {
-			return x + window.location.href.split('?')[0] + '?' + codificar("pers=" + recomendador.toString() + "prod=" + recomendacion.toString());
+			return x + window.location.href.split('?')[0] + '?' + codificar("pers=" + recomendador.toString() + "&prod=" + recomendacion.toString());
 		}
 
 		//ofuscacion

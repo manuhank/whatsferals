@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="theme-color" content="#009de1" />
+	<!--OpenGraph-->
+	<meta property="og:title" content="Recomendá y ganá" />
+	<meta property="og:url" content="" />
+	<meta property="og:description" content="Recomendá y ganá" />
+	<meta property="og:image" content="http://dantepeluqueria.com/rompecabezas/ui/fbthumb.png" />
+	<meta property="og:image:width" content="788" />
+	<meta property="og:image:height" content="414" />
+	<!--Twitter-->
+	<meta name="twitter:title" content="Recomendá y ganá">
+	<meta name="twitter:description" content="Resolvé el rompecabezas y desafia a tus amigos.">
+	<meta name="twitter:image" content="http://dantepeluqueria.com/rompecabezas/ui/fbthumb.png">
+
+	<title>Recomendá y ganá</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Encode+Sans:200" rel="stylesheet">
+	<style>
+		* {
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			-webkit-tap-highlight-color: transparent;
+		}
+
+		html {
+			height: 100%;
+		}
+
+		body {
+			height: 100%;
+			margin: 0;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background: linear-gradient(rgb(160, 160, 160), rgb(255, 255, 255));
+		}
+
+		p {
+			font-size: 3.875vh;
+			font-family: 'Encode Sans', Arial, Helvetica, sans-serif;
+		}
+
+		.botonColor {
+			display: inline-block;
+			height: 5vh;
+			width: 5vh;
+			cursor: pointer;
+			border-radius: 100%;
+			margin: .05em;
+
+		}
+
+		.iconosSoc {
+			display: inline-block;
+			cursor: pointer;
+			margin: 0.3em;
+			height: 4em;
+			width: 4em;
+			max-height: 9vh;
+			max-width: 9vh;
+		}
+
+		.imagen {
+			display: block;
+			margin: auto;
+			width: 100%;
+			cursor: pointer;
+			max-width: 116vh;
+		}
+
+		.imagenDes {
+			display: block;
+			margin: auto;
+			width: 50%;
+			max-width: 116vh;
+		}
+
+		.imagenAcons {
+			display: block;
+			position: relative;
+			min-width: 40vh;
+			width: 40vw;
+			max-width: 50vh;
+		}
+
+		.flecha {
+			position: absolute;
+			top: 35%;
+			height: 6em;
+			cursor: pointer;
+			z-index: 2;
+		}
+
+		.botonColorVer {
+			display: inline-block;
+			cursor: pointer;
+			height: 11vw;
+			width: 11vw;
+			margin: 0 0.5vw 0 0vw;
+			border-radius: 100%;
+		}
+
+		.iconosSocVer {
+			display: inline-block;
+			cursor: pointer;
+			margin: 2em;
+			height: 7em;
+			width: 7em;
+		}
+
+		.logosPub {
+			display: inline-block;
+			cursor: pointer;
+			margin: 1vw;
+			max-width: 22vw;
+		}
+
+		.txtMensaje {
+			font: 190% arial bold, sans-serif;
+		}
+
+		.imgMensaje {
+			display: block;
+			width: 8em;
+			height: 8em;
+		}
+
+		.botonOpcion {
+			display: block;
+			position: relative;
+			height: 3em;
+			width: 18em;
+			cursor: pointer;
+			border-radius: 8vw;
+			margin-top: 1.5em;
+			text-align: center;
+		}
+
+		.opcionUno {
+			background-color: #009de1;
+		}
+
+		.opcionDos {
+			background-color: #ff0054;
+		}
+
+		.botonRedondo {
+			display: inline-block;
+			height: 3em;
+			width: 3em;
+			cursor: pointer;
+			border-radius: 100%;
+			text-align: center;
+			margin: 1em;
+		}
+
+		.txtBoton {
+			position: relative;
+			top: -55%;
+			font: 190% arial, sans-serif;
+		}
+
+		.centrador {
+			display: flex;
+			justify-content: center;
+		}
+
+		.centradorTxt {
+			position: relative;
+			display: block;
+			text-align: center;
+			width: 60%;
+			max-width: 40em;
+			margin: 1em auto 1em auto;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div id="landing">
+		<img src="img/titulo.svg" style="position:relative; top:10vh; margin:0 5vh 0 5vh;max-height:35vh;z-index:0" />
+		<div style="position:relative; margin:13vh 5vh 0 5vh;">
+			<p>Ganá recomendanos a un amigo o colega ¡son solo dos clicks y el premio lo eligen ustedes!</p>
+		</div>
+		<div class="centrador">
+			<img src="img/siguiente.svg" style="position:relative;margin:0 5vh 0 5vh;z-index:10" onclick="ocultar(landing); mostrar(segundo);"
+			/>
+		</div>
+		<img src="img/premios.png" style="position:absolute; bottom:0; right:0;max-height:35vh; z-index:1" />
+	</div>
+	<div id="segundo" style="display:none">
+
+		<div class="centradorTxt">
+			<p>1)Ingresá tu nombre</p>
+		</div>
+		<div class="centrador">
+			<input style="display:block;position:relative; transform:scale(1.7);margin:0 5vh 0 5vh" type="text" name="entradaRecomendador"
+			 value="" onchange="cambiarRecomendador(this.value)" required>
+		</div>
+		<div class="centradorTxt">
+			<p>2)Recomendá un producto (opcional)</p>
+		</div>
+		<div class="centrador">
+			<input style="display:block; transform:scale(1.7);margin:0 5vh 0 5vh" type="text" name="entradaRecomendacion" value="" onchange="cambiarRecomendacion(this.value)">
+		</div>
+		<div class="centradorTxt">
+			<p>3)Compartí</p>
+		</div>
+
+		<div class="centrador" style="margin: 1em, 0, 1em, 0;z-index:14">
+			<img class="iconosSoc" src="img/compartir/f.svg" onclick="window.open(crearURL('https://www.facebook.com/sharer/sharer.php?u='))"
+			/>
+			<img class="iconosSoc" src="img/compartir/t.svg" onclick="window.open(crearURL('https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&text=%C2%A1Est%C3%A1%20vivo!&tw_p=tweetbutton&url='))"
+			/>
+			<img id="wappIcon" class="iconosSoc" src="img/compartir/w.svg" onclick="window.open(crearURL('whatsapp://send?text='))"
+			/>
+		</div>
+	</div>
+	<img src="img/footer.svg" style="position:fixed; bottom:0;z-index:0" />
+
+	<script>
+		var recomendador, recomendacion;
+		function obtenerValor(variable, esNum) {
+			//toma el la parte despues de ?
+			var url = window.location.search.substring(1);
+			//crea un array separando elementos por &
+			var vars = decodificar(url).split("&");
+			//para cada elemento del array, crea un sub array dividiendo entre nombre y valor
+			for (var i = 0; i < vars.length; i++) {
+				var par = vars[i].split("=");
+				//busca la variable
+				if (par[0] == variable) {
+					// si se le indico que es un numero, devuelve el valor como n natural
+					if (esNum) {
+						return parseInt(par[1]);
+					} else {
+						return par[1]
+					}
+				}
+			}
+		}
+		function cambiarRecomendador(x) {
+			recomendador = x;
+		}
+		function cambiarRecomendacion(x) {
+			recomendacion = x;
+		}
+		function mostrar(x) {
+			x.style.display = 'block';
+		}
+
+		function ocultar(x) {
+			x.style.display = 'none';
+		}
+		function crearURL(x) {
+			return x + window.location.href.split('?')[0] + '%3F' + codificar("n=" + recomendador.toString() + "&t=" + recomendacion.toString());
+		}
+
+		//ofuscacion
+		function codificar(str) {
+			return encodeURIComponent(btoa(encodeURIComponent(str)));
+		}
+		function decodificar(str) {
+			return decodeURIComponent(atob(decodeURIComponent(str)));
+		}
+	</script>
+</body>
+
+</html>

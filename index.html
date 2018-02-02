@@ -59,8 +59,8 @@
 			display: inline-block;
 			cursor: pointer;
 			margin: 0.3em;
-			height: 4em;
-			width: 4em;
+			height: 6em;
+			width: 6em;
 			max-height: 9vh;
 			max-width: 9vh;
 		}
@@ -73,96 +73,9 @@
 			max-width: 116vh;
 		}
 
-		.imagenDes {
-			display: block;
-			margin: auto;
-			width: 50%;
-			max-width: 116vh;
-		}
-
-		.imagenAcons {
-			display: block;
-			position: relative;
-			min-width: 40vh;
-			width: 40vw;
-			max-width: 50vh;
-		}
-
-		.flecha {
-			position: absolute;
-			top: 35%;
-			height: 6em;
-			cursor: pointer;
-			z-index: 2;
-		}
-
-		.botonColorVer {
-			display: inline-block;
-			cursor: pointer;
-			height: 11vw;
-			width: 11vw;
-			margin: 0 0.5vw 0 0vw;
-			border-radius: 100%;
-		}
-
-		.iconosSocVer {
-			display: inline-block;
-			cursor: pointer;
-			margin: 2em;
-			height: 7em;
-			width: 7em;
-		}
-
-		.logosPub {
-			display: inline-block;
-			cursor: pointer;
-			margin: 1vw;
-			max-width: 22vw;
-		}
 
 		.txtMensaje {
 			font: 190% arial bold, sans-serif;
-		}
-
-		.imgMensaje {
-			display: block;
-			width: 8em;
-			height: 8em;
-		}
-
-		.botonOpcion {
-			display: block;
-			position: relative;
-			height: 3em;
-			width: 18em;
-			cursor: pointer;
-			border-radius: 8vw;
-			margin-top: 1.5em;
-			text-align: center;
-		}
-
-		.opcionUno {
-			background-color: #009de1;
-		}
-
-		.opcionDos {
-			background-color: #ff0054;
-		}
-
-		.botonRedondo {
-			display: inline-block;
-			height: 3em;
-			width: 3em;
-			cursor: pointer;
-			border-radius: 100%;
-			text-align: center;
-			margin: 1em;
-		}
-
-		.txtBoton {
-			position: relative;
-			top: -55%;
-			font: 190% arial, sans-serif;
 		}
 
 		.centrador {
@@ -200,32 +113,40 @@
 			<p>1)Ingresá tu nombre</p>
 		</div>
 		<div class="centrador">
-			<input style="display:block;position:relative; transform:scale(1.7);margin:0 5vh 0 5vh" type="text" name="entradaRecomendador"
-			 value="" onchange="cambiarRecomendador(this.value)" required>
+			<input style="display:block;position:relative; transform:scale(3.7);margin:0 5vh 0 5vh" type="text" name="entradaRecomendador"
+			 value="" onchange="cambiarRecomendador(this.value); mostrar(social);" required>
 		</div>
 		<div class="centradorTxt">
 			<p>2)Recomendá un producto (opcional)</p>
 		</div>
 		<div class="centrador">
-			<input style="display:block; transform:scale(1.7);margin:0 5vh 0 5vh" type="text" name="entradaRecomendacion" value="" onchange="cambiarRecomendacion(this.value)">
+			<input style="display:block; transform:scale(3.7);margin:0 5vh 0 5vh" type="text" name="entradaRecomendacion" value="" onchange="cambiarRecomendacion(this.value)">
 		</div>
-		<div class="centradorTxt">
-			<p>3)Compartí</p>
-		</div>
+		<div id="social" style="display:none">
+			<div class="centradorTxt">
+				<p>3)Compartí</p>
+			</div>
 
-		<div class="centrador" style="margin: 1em, 0, 1em, 0;z-index:14">
-			<img class="iconosSoc" src="img/compartir/f.svg" onclick="window.open(crearURL('https://www.facebook.com/sharer/sharer.php?u='))"
-			/>
-			<img class="iconosSoc" src="img/compartir/t.svg" onclick="window.open(crearURL('https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&text=%C2%A1Est%C3%A1%20vivo!&tw_p=tweetbutton&url='))"
-			/>
-			<img id="wappIcon" class="iconosSoc" src="img/compartir/w.svg" onclick="window.open(crearURL('whatsapp://send?text='))"
-			/>
+			<div class="centrador" style="margin: 1em, 0, 1em, 0;z-index:14">
+				<img class="iconosSoc" src="img/compartir/f.svg" onclick="window.open(crearURL('https://www.facebook.com/sharer/sharer.php?u='))"
+				/>
+				<img class="iconosSoc" src="img/compartir/t.svg" onclick="window.open(crearURL('https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&text=%C2%A1Est%C3%A1%20vivo!&tw_p=tweetbutton&url='))"
+				/>
+				<img id="wappIcon" class="iconosSoc" src="img/compartir/w.svg" onclick="window.open(crearURL('whatsapp://send?text='))" />
+			</div>
 		</div>
 	</div>
 	<img src="img/footer.svg" style="position:fixed; bottom:0;z-index:0" />
 
 	<script>
-		var recomendador, recomendacion;
+		var recomendador = obtenerValor("pers", 0);
+		var recomendacion = obtenerValor("prod", 0);
+		function init(){
+			if(recomendador){
+				ocultar(landing);
+				mostrar(final);
+			}
+		}
 		function obtenerValor(variable, esNum) {
 			//toma el la parte despues de ?
 			var url = window.location.search.substring(1);
@@ -259,7 +180,7 @@
 			x.style.display = 'none';
 		}
 		function crearURL(x) {
-			return x + window.location.href.split('?')[0] + '%3F' + codificar("n=" + recomendador.toString() + "&t=" + recomendacion.toString());
+			return x + window.location.href.split('?')[0] + '%3F' + codificar("pers=" + recomendador.toString() + "prod=" + recomendacion.toString());
 		}
 
 		//ofuscacion
@@ -269,6 +190,7 @@
 		function decodificar(str) {
 			return decodeURIComponent(atob(decodeURIComponent(str)));
 		}
+		window.ready = init();
 	</script>
 </body>
 

@@ -141,9 +141,17 @@
 		</div>
 	</div>
 	<div id="final" style="display:none">
-		<span>Hola, </span>
+		<div style="margin: 5vh"><span>Hola, </span>
 		<span id="nombreRecomendador"></span>
 		<span> te invitó a nuestra promo. Con tu primera compra, ambos ganan un premio a elección.</span>
+		</div>
+		<div class="centrador" style="margin: 1em, 0, 1em, 0;z-index:14">
+			<img class="iconosSoc" src="img/compartir/f.svg" onclick="window.open(crearURL('https://www.facebook.com/sharer/sharer.php?u='))"
+			/>
+			<img class="iconosSoc" src="img/compartir/t.svg" onclick="window.open(crearURL('https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&text=%C2%A1Est%C3%A1%20vivo!&tw_p=tweetbutton&url='))"
+			/>
+			<a href="intent://send/+5493416921638#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end"></a><img id="wappIcon" class="iconosSoc" src="img/compartir/w.svg" onclick="window.open(crearURL('whatsapp://send?text='))" /></a>
+		</div>
 		<img src="img/premios.png" style="position:absolute; bottom:0; right:0;max-height:35vh; z-index:1" />
 	</div>
 	<img src="img/footer.svg" style="position:fixed; bottom:0;z-index:0" />
